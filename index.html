@@ -4,144 +4,365 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
-    <!-- <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css"> -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <style>
-        body{
-            background-color: #08233B ;
-        }
-        header{
-            background-color: rgba(255, 255, 255, 0.5);
-            color: #08233B;
-            position: fixed;
-            width: 100%;
-            padding: 5px;
-            font-size: 20px;
-            margin-left: 8px;
-            border-radius: 25px;
-            margin-top: -130px;
-        }
-        .k{
-            font-size: 50px;
-            font-weight: bold;
-        }
-        .bi-linkedin,.bi-instagram{
-            color: white;
-        }
-        .bi-linkedin{
-            margin-left: 30%;
-        }
-        .portfolio-img{
-            border-radius: 30px;
-            margin-right: 150px;
-            transform: rotate(-5deg);
-        }
-        .intro-content{
-            margin-top: 150px;
-        }
-        .projects{
-            margin-top: 30%;
-        }
-        .skills{
-            background-color: #283D50;
-            border-radius: 3px;
-            font-size: 18px;
-            color: white;
-            font-weight: bold;
-            padding: 3px;
-            margin-right: 8px;
-            
+        h1{
+            font-size: 450%; color: #00FF00; font-family: Orbitron;
         }
         
-    </style>
-    
-</head>
+        h5{
+            color: #F5F5F5;
+        }
+        h3{
+            color: #00FF00;
+        }
+        .explore{
+            background-color: #00FF00;
+            padding: 0.2%;
+            border-radius: 30%;
+            margin-top: 3%;
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .explore:visited, .explore:active{
+            color: white;
+        }
 
-<body>
-    <header>
-        <nav>
-            <span class="k">K</span>
-            <span style="margin-left: 35%;">
-                <span>Home &nbsp; &nbsp;</span>
-                <span>Project &nbsp; &nbsp;</span>
-                <span>About &nbsp; &nbsp;</span>
-                <span>Contact </span>
-            </span>
+        .skills-section h2 {
+            font-size: 2.5rem;
+            color: #FFC107; /* Construction yellow */
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .skill-card {
+            display: flex;
+            align-items: center;
+            background-color: #1c1c1c;
+            border: 2px dashed #FFC107;
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 500px;
+            flex: 1 1 300px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: scale(1.05);
+            cursor: grab;
+            box-shadow: 0px 0px 20px 5px rgba(11, 255, 7, 0.8);
+        }
+
+        .skill-card img {
+            width: 80px;
+            height: 80px;
+            margin-right: 20px;
+            border: 2px solid #FFC107;
+            border-radius: 50%;
+            padding: 5px;
+            background-color: black;
+        }
+
+        .skill-card p {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        .skill-card .skill-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #FFC107;
+        }
+
+        .skill-meter {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .skill-meter meter {
+            width: 100%;
+            height: 15px;
+            background: #333;
+        }
+
+        .skill-meter meter::-webkit-meter-bar {
+            background: #333;
+            border-radius: 10px;
+        }
+
+        .skill-meter meter::-webkit-meter-optimum-value {
+            background: #FFC107;
+            border-radius: 10px;
+        }
+
+
+        .skill-meter span {
+            font-size: 1rem;
+            color: #FFC107;
+        }
+        /* Outer border to resemble a laptop/computer frame */
+#project {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 750px; /* Slightly bigger to match a screen look */
+  height: 350px; /* Screen height */
+  margin: 50px auto; /* Center the container */
+  border: 15px solid #333; /* Dark border to simulate the computer frame */
+  border-radius: 20px; /* Slightly rounded corners for a modern look */
+  background-color: #000; /* Screen background color */
+  padding: 10px; /* Inner spacing for the content */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Shadow for a floating effect */
+  position: relative; /* For positioning additional elements like power button */
+  scrollbar-width: none;
+
+}
+
+/* Images inside the container */
+#project img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Hover effect for images */
+#project img:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+/* Adding a power button */
+#project::after {
+  content: '';
+  width: 15px;
+  height: 15px;
+  background-color: #FF0000; /* Red color for the power button */
+  border-radius: 50%;
+  position: absolute;
+  bottom: -25px; /* Position below the screen */
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 5px rgba(255, 0, 0, 0.8); /* Glowing effect */
+}
+
+#section-proj{
+    height: 100vh;
+}        
+  </style>
+</head>
+<body class="container-fluid p-0">
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <!-- Header Section -->
+    <header class="position-relative vh-100 overflow-hidden">
+        <!-- Background Video -->
+        <video autoplay muted loop class="position-absolute top-0 start-0 w-100 h-100" style="object-fit: cover;">
+            <source src="/video/bg-header.mp4" type="video/mp4">
+        </video>
+        <!-- Content Over Video -->
+        <div class="position-relative d-flex flex-column align-items-center justify-content-center h-100">
             
-            <span><a href="https://www.linkedin.com/in/krishna-jain-529518316/?originalSubdomain=in" target="_blank"><span class="bi bi-linkedin"></span></a></span>
-            <span><a href="https://www.instagram.com/krishnajain.kri/?next=%2F" target="_blank"><span class="bi bi-instagram"></span></a></span>
-        </nav>
+            <h1 class="fw-bold" >
+                KRISHNA JAIN
+            </h1>
+        
+            
+            <h5 class="mt-4" >
+                Aspiring Web Wizard 🧙🏻‍♂️
+            </h5>
+            
+
+        </div>
     </header>
 
-    <section>
-
-        <div class="intro">
-            <div class="intro-content">
-            <div style="font-size: 35px; color: #9CA7B1; font-family: sans-serif;">Hey, there 👋🏻</div>
-            <div>
-               <span style="font-size: 70px; color: #9CA7B1; font-family: sans-serif; font-weight: bold;">I am</span>
-                &nbsp; 
-               <span style="font-size: 70px; color: #528EBB; font-family: sans-serif; font-weight: bold;">Krishna Jain</span>
+    <section class="container-fluid py-5 bg-black">
+        <div class="row " id="about">
+            <!-- Image Section -->
+            <div class="col-md-6 text-center ">
+                <img src="/image/portfolio2.jpg" alt="Krishna Jain" class="img-fluid rounded-5" style="height: 95%; width: 85%;">
             </div>
-            <div style="font-size: 60px; color: #FFFFFF; font-family: sans-serif; font-weight: bold; margin-top: -8px;">
-                a Software Developer
-            </div>
-            <div style="font-size: 35px; color: #9CA7B1; font-family: sans-serif; margin-top: 7px;">
-                currently focused on building user <br>experiences that drive growth.
-            </div>
-            </div>
-            <div>
-                <img src="../image/portfolio.jpg" alt="my photo" align="right" height="375px" class="portfolio-img" style="margin-top: -250px;" >
+    
+            <!-- Content Section -->
+            <div class="col-md-6">
+                <h2 class="fw-bold  text-center" style="color: #00FF00; font-size: 400%;">About Me</h2>
+                <h6 class="text-light text-center">Code is my canvas. 💻🎨</h6>
+                
+                <h3 class="mt-4 " >Hey there, I’m Krishna!</h3>
+                <p class="text-light"><span role="img" aria-label="man-waving">👨‍💻</span> | Web Enthusiast | Tech Dreamer | Creative Problem-Solver</p>
+                <hr style="border-color: #00FF00;">
+    
+                <h3 >Who Am I?</h3>
+                <p class="text-light">I’m a passionate tech enthusiast, diving deep into the world of web development with a blend of creativity and innovation.  
+                    <br>My journey is all about learning, experimenting, and evolving.</p>
+    
+                <hr style="border-color: #00FF00;">
+                <h3>What Drives Me?</h3>
+                <p class="text-light">I’m driven by the idea of using technology to create meaningful solutions that improve lives.  
+                    <br>My goal is always to deliver functional, user-friendly experiences.</p>
+    
+                <hr style="border-color: #00FF00;">
+                <h3  >Skills & Interests</h3>
+                <h6 class="text-light">Here’s a glimpse into what I’m currently working on:</h6>
+                <p>
+                    <ul>
+                        <li class="text-light"><b>Web Development</b>: Building responsive, modern, and scalable websites with a focus on performance and aesthetics.</li>
+                        <li class="text-light"><b>Problem-Solving</b>: Tackling real-world challenges with innovative, out-of-the-box solutions.</li>
+                        <li class="text-light"><b>DS and AI/ML</b>: Learning the domain of Data Science and Artificial Intelligence</li>
+                    </ul>
+                </p>
             </div>
         </div>
 
+            <hr style="color: white;">
 
-        <main class="projects">
-            <div>
-                <h1 style="color: #C1C8CE; font-family: fantasy; font-size: 80px; font-weight: lighter;">PROJECTS</h1>
+        <div>
+        <div class="d-flex justify-content-center text-center fst-italic">
+            <h2 style="color: #00FF00; margin-top: 5%; font-weight: bold; width: 57%; border-radius: 20%;" >
+                "MY JOURNEY FROM CLUELESS TO C++🎓"</h2>
+        </div>
+        <div class="d-flex justify-content-around mt-4 container-fluid">
+            
+        <div class="card position-relative overflow-hidden" style="width: 18rem;">
+            <video autoplay muted loop class="position-absolute"> <source src="/video/bg-cards.mp4" type="video/mp4">
+            </video>
+            <div class="card-body position-relative">
+              <h5 class="card-title fw-bold fs-3 text-light">SCHOOL DAYS</h5>
+              <p class="card-text fst-italic" style="color: #00FF00;">2009 to 2024</p>
+              
+                <li class="list-group-item text-light">Indian Oxford Academy</li> <hr class="text-light">
+                <li class="list-group-item text-light">St. Xavier's School</li> <hr class="text-light">
+                <li class="list-group-item text-light">Holy Angel's Sr. Sec. School</li>
+              
             </div>
-            <article style="background-color: #193146; width: 100%; height: 279px;">
-            <div>
-              <img src="image/youtube-project.png" alt="youtube-project" width="600px"  align="left">  
-            </div>
-            <div style="margin-left: 625px;">
-                <div style="color: white; font-size: 50px; font-weight: bolder;  ">Youtube UI Clone</div>
-                <div style="color: #A0AAB2; font-family: sans-serif; font-weight: lighter;">Designed a responsive YouTube UI clone with HTML and CSS, <br>replicating its sleek, intuitive layout. <br>
-                     This project highlights my attention to detail and passion for modern web design.</div>
-                
-                <div style="margin-top: 10px; margin-bottom: 10px;">
-                    <span class="skills">HTML</span> 
-                    <span class="skills">CSS</span> 
+            
+          </div>
+
+          <div class="card position-relative overflow-hidden" style="width: 18rem;">
+            <video autoplay muted loop class="position-absolute"> <source src="/video/bg-cards.mp4" type="video/mp4">
+            </video>
+            
+                <div class="card-body position-relative">
+                <h5 class="card-title fw-bold fs-3 text-light">IIT Patna</h5>
+                <p class="card-text fst-italic" style="color: #00FF00;">2024 to 2027(~present)</p>
+                  <p class="card-text text-light">Rocking a B.Sc. (Hons.) in Data Analytics and Computer Science like a pro!💻</p>
                 </div>
-
-            </div>
-
-            </article>
-
-            <article style="background-color: #193146; width: 100%; height: 279px; margin-top: 10%;">
-                <div>
-                    <img src="image/job-application.png" alt="job-application project" width="600px" align="left">
+        </div>
+            <div class="card position-relative overflow-hidden" style="width: 18rem;">
+                <video autoplay muted loop class="position-absolute"> <source src="/video/bg-cards.mp4" type="video/mp4">
+                </video>
+                <div class="card-body position-relative">
+                <h5 class="card-title fw-bold fs-3 text-light">PW Institute Of Innovation</h5>
+                <p class="card-text fst-italic" style="color: #00FF00;">2024 to 2028(~present)</p>
+                  <p class="card-text text-light">Certified in Data Analytics, Computer Science & AI—leveling up my tech game! 🤖</p>
                 </div>
-
-                <div style="margin-left: 625px;">
-                    <div style="color: white; font-size: 50px; font-weight: bolder;  ">Job Application</div>
-                    <div style="color: #A0AAB2; font-family: sans-serif; font-weight: lighter;">Designed a responsive job application webpage using HTML and CSS, <br>
-                        showcasing interactive form elements, user-friendly design,<br>
-                        and functional input fields to enhance the applicant experience.
-                    
-                    <div style="margin-top: 10px; margin-bottom: 10px;">
-                        <span class="skills">HTML</span> 
-                        <span class="skills">CSS</span> 
+          </div>
+        </div>
+        </div><hr style="color: white; margin-top: 5%;">
+        
+        <div class="skills-section">
+            <h2 class="text-center fst-italic fw-bold">SKILLS: UNDER CONSTRUCTION 🚧</h2>
+            <div class="skills-container mt-5">
+                <!-- Skill: HTML -->
+                <div class="skill-card">
+                    <img src="/image/html-removebg-preview.png" alt="HTML">
+                    <div>
+                        <p class="skill-title">HTML</p>
+                        <p class="text-light">Getting the hang of tags—almost fluent! 🏗️</p>
+                        <div class="skill-meter">
+                            <meter value="75" min="0" max="100"></meter>
+                            <span>75%</span>
+                        </div>
                     </div>
-    
                 </div>
+    
+                <!-- Skill: CSS -->
+                <div class="skill-card">
+                    <img src="/image/css (2).png" alt="CSS">
+                    <div>
+                        <p class="skill-title">CSS</p>
+                        <p class="text-light">Half-styled, half-wild—beauty in progress! 🎨💡</p>
+                        <div class="skill-meter">
+                            <meter value="60" min="0" max="100"></meter>
+                            <span>60%</span>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Skill: C -->
+                <div class="skill-card">
+                    <img src="/image/c-removebg-preview.png" alt="C">
+                    <div>
+                        <p class="skill-title">C</p>
+                        <p class="text-light">Halfway through the syntax jungle! 🌿</p>
+                        <div class="skill-meter">
+                            <meter value="50" min="0" max="100"></meter>
+                            <span>50%</span>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Skill: C++ -->
+                <div class="skill-card">
+                    <img src="/image/cpp-removebg-preview.png" alt="C++">
+                    <div>
+                        <p class="skill-title">C++</p>
+                        <p class="text-light">Just unpacked my toolbox 🔧</p>
+                        
+                    </div>
+                </div>
+    
+                <!-- Skill: JavaScript -->
+                <div class="skill-card">
+                    <img src="/image/js-removebg-preview.png" alt="JavaScript">
+                    <div>
+                        <p class="skill-title">JavaScript</p>
+                        <p class="text-light">Just unpacked my toolbox 🔧</p>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr style="color: white; margin-top: 5%;">
 
-            </article>
-        </main>
+
+        <div id="section-proj" class="container-fluid">
+            <h2 style="color: #00FF00;" class="d-flex justify-content-center fs-6 fw-bold fst-italic">
+                DEPLOYED DREAMS 🌈
+            </h2>
+            <div id="project">
+            <img src="/image/01.png" alt="projectimg01">
+            <img src="/image/02.png" alt="projectimg02">
+            <img src="/image/03.png" alt="projectimg03">
+            <img src="/image/04.png" alt="projectimg04">
+            <img src="/image/05.png" alt="projectimg05">
+            </div>
+
+
+<div>
+<a href="https://the-dabba-developers.vercel.app" class="d-flex justify-content-around" style="margin-top: -3%;"><img src="/image/github.jpg" style="
+    border-radius: 50%;
+    width: 10%;
+    height: 10%;
+    border: 1px solid #00FF00;" ></a>
+</div>
+        </div>
+    
+    
+    
     </section>
     
-
 </body>
-
 </html>
